@@ -581,12 +581,12 @@ class WechatSpider(object):
         text = self.__get(article['content_url'], 'mp.weixin.qq.com')
         yuan_url = re.findall('var msg_link = "(.*?)";', text)[0].replace('amp;','')
         related = self.__deal_related(article)
-        comment = self.__deal_comment(text)
+        #comment = self.__deal_comment(text)
         content_html, content_rich, content_text = self.__deal_content(text)
         return {
             'yuan': yuan_url,
             'related': related,
-            'comment': comment,
+        #    'comment': comment,
             'content': {
                 'content_html': content_html,
                 'content_rich': content_rich,
